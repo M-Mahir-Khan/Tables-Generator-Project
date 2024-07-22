@@ -5,107 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Generator</title>
+    <link rel="stylesheet" href="./Style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-        }
 
-        .form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px;
-        }
-
-        .input {
-            width: 250px;
-            height: 20px;
-            padding: 10px;
-            border: 2px solid #ccc;
-            border-radius: 5px 0 0 5px;
-            font-size: 30px;
-            outline: none;
-        }
-
-        .btn {
-            height: 40px;
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        .table-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-            margin: 20px;
-        }
-
-        .table {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .table:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .row {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #333;
-            font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            .input {
-                width: 150px;
-                font-size: 14px;
-            }
-
-            .btn {
-                height: 35px;
-                padding: 0 15px;
-            }
-
-            .row {
-                font-size: 16px;
-            }
-            
-            .table-container{
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-        @media (max-width: 992px) {
-            
-            .table-container{
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
     </style>
 </head>
-
 <body>
     <form class="form">
         <input type="number" class="input">
@@ -116,41 +23,7 @@
 
     <div class="table-container">
     </div>
-
-    <script>
-        const input = document.querySelector(".input");
-        const form = document.querySelector(".form")
-        const tableContainer = document.querySelector(".table-container")
-
-        form.addEventListener("submit", generateTable);
-
-        function generateTable(e) {
-            e.preventDefault();
-            let num = input.value;
-
-            if(num === ""){
-                alert("Please enter a number")
-            }else{
-                 let table = document.createElement("div");
-            table.classList.add("table");
-            tableContainer.appendChild(table);
-
-
-            // Generate table
-            for (let i = 1; i < 10; i++) {
-                let row = document.createElement("div");
-                row.classList.add("row");
-                table.appendChild(row);
-
-                let res = `${num} * ${i} = ${num * i}`;
-                row.innerText = res
-            }
-            input.value = ""    
-            }
-
-           
-        }
-    </script>
+    <script src="./Js/script.js"></script>
 </body>
 
 </html>
